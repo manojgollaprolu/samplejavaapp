@@ -45,7 +45,7 @@ stages {
 		    withCredentials([usernamePassword(credentialsId: 'DOCKER_HUB_PWD', passwordVariable: 'pass', usernameVariable: 'user')]) {
 			   sh 'echo $user'
 			    sh "docker login -u ${user} -p ${pass}"
-		    }
+		   
 		    }
 		    sh 'docker push bkmanikanta/samplejavaapp:$BUILD_NUMBER'
 	    }
