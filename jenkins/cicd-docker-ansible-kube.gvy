@@ -41,9 +41,9 @@ stages {
 		    sh 'cd $WORKSPACE'
 		    sh 'docker build --file Dockerfile --tag lerndevops/samplejavaapp:$BUILD_NUMBER .'
 		    withCredentials([string(credentialsId: 'DOCKER_HUB_PWD', variable: 'DOCKER_HUB_PWD')]) {
-			    sh "docker login -u lerndevops -p ${DOCKER_HUB_PWD}"
+			    sh "docker login -u bkmanikanta -p ${DOCKER_HUB_PWD}"
 		    }
-		    sh 'docker push lerndevops/samplejavaapp:$BUILD_NUMBER'
+		    sh 'docker push bkmanikanta/samplejavaapp:$BUILD_NUMBER'
 	    }
     }
     stage('Deploy-QA') {
