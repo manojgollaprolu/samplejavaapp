@@ -40,8 +40,12 @@ stages {
 	    steps {
 		    sh 'cd $WORKSPACE'
 		    sh 'docker build --file Dockerfile --tag lerndevops/samplejavaapp:$BUILD_NUMBER .'
-		    withCredentials([string(credentialsId: 'DOCKER_HUB_PWD', variable: 'DOCKER_HUB_PWD')]) {
-			    sh "docker login -u bkmanikanta -p ${DOCKER_HUB_PWD}"
+// 		    withCredentials([string(credentialsId: 'DOCKER_HUB_PWD', variable: 'DOCKER_HUB_PWD')]) {
+//			    sh "docker login -u bkmanikanta -p ${DOCKER_HUB_PWD}"
+		    withCredentials([usernamePassword(credentialsId: 'DOCKER_HUB_PWD', passwordVariable: 'pass', usernameVariable: 'user')]) {
+			   sh 'echo $user'
+			    sh "docker login -u ${user} -p ${pass}"
+		    }
 		    }
 		    sh 'docker push bkmanikanta/samplejavaapp:$BUILD_NUMBER'
 	    }
