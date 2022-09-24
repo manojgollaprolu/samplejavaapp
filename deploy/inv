@@ -1,8 +1,5 @@
 [qa]
-ip1
-ip2
+172.31.88.46 ansible_user=ubuntu ansible_ssh_pass=bk
 
 [prod]
-ip1
-ip2
-
+172.31.27.65 ansible_user=ubuntu ansible_ssh_pass=bk
