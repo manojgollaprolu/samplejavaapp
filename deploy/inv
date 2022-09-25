@@ -1,5 +1,9 @@
 [qa]
-172.31.88.46 ansible_user=ubuntu ansible_ssh_pass=bk
+172.31.88.46
+
+[qa:vars]
+ansible_user=ubuntu
+ansible_ssh_pass=bk
 
 [prod]
 172.31.27.65 ansible_user=ubuntu ansible_ssh_pass=bk
