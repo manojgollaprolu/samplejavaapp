@@ -5,13 +5,13 @@ stages {
 	    steps { 
 		    echo 'compiling..'
 		    git url: 'https://github.com/lerndevops/samplejavaapp'
-		    sh script: 'mvn compile'
+		    sh script: '/usr/bin/mvn compile'
 	    }
     }
     stage('codereview-pmd') {
 	    steps { 
 		    echo 'codereview..'
-		    sh script: 'mvn -P metrics pmd:pmd'
+		    sh script: '/usr/bin/mvn -P metrics pmd:pmd'
             }
 	    post {
 		    success {
@@ -22,7 +22,7 @@ stages {
     stage('unit-test') {
 	    steps {
 		    echo 'unittest..'
-		    sh script: 'mvn test'
+		    sh script: '/usr/bin/mvn test'
 	    }
 	    post {
 		    success {
